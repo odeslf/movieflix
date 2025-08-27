@@ -1,18 +1,22 @@
 package com.musicflux.movieflix.service;
 
+import com.musicflux.movieflix.model.Category;
 import com.musicflux.movieflix.model.Streaming;
 import com.musicflux.movieflix.repository.StreamingRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class StreamingService {
 
-    @Autowired
-    private StreamingRepository repository;
+
+    private final StreamingRepository repository;
 
     public List<Streaming> findAll() {
         return repository.findAll();
