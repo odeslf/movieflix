@@ -1,5 +1,6 @@
 package com.musicflux.movieflix.controller;
 
+import com.musicflux.movieflix.controller.request.LoginRequest;
 import com.musicflux.movieflix.controller.request.UserRequest;
 import com.musicflux.movieflix.controller.response.UserResponse;
 import com.musicflux.movieflix.mapper.UserMapper;
@@ -24,5 +25,10 @@ public class AuthController {
     public ResponseEntity<UserResponse> register(@RequestBody UserRequest request) {
         User savedUser = userService.save(UserMapper.toUser(request));
         return ResponseEntity.status(HttpStatus.CREATED).body(UserMapper.toUserResponse(savedUser));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
+
     }
 }
